@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.superman.gotohome"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+	 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!--  
+    android:theme="@android:style/Theme.Translucent.NoTitleBar"
+    android:theme="@android:style/Theme.NoDisplay"
+     -->
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:theme="@android:style/Theme.NoDisplay"
+            android:name="com.superman.gotohome.core.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name=".GoToHomeService" android:exported="false">
+            <intent-filter >
+                <action android:name="com.superman.gotohome.GoToHomeService"/>
+                
+            </intent-filter>
+        </service>
+        <!-- 开机启动的广播 -->  
+        <receiver android:name=".BootBroadCast" >  
+            <intent-filter>  
+                <action android:name="android.intent.action.BOOT_COMPLETED" >  
+                </action>  
+  
+            </intent-filter>  
+        </receiver>  
+    </application>
+
+</manifest>
