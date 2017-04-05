@@ -1,4 +1,4 @@
-#devLog
+# devLog
 
 ## v0.1.1
 - 点击Notification回到桌面
